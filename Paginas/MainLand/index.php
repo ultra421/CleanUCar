@@ -34,6 +34,7 @@ include "../../Plantillas/topBarMovile.php";
 
         <div>
             <img src = "../../Imagenes/fakemap.png" >
+            <h1>hola</h1>
         </div>
     </a>
 
