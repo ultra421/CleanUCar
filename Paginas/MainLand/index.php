@@ -15,7 +15,7 @@ include "../../Plantillas/userInfoPrint.php";
 
     <link rel="stylesheet" href="../../CSS/Base.css">
     <link rel="stylesheet" href="../../CSS/MainLand.css">
-    <link href="Jquery/Plugins/cdwharton-cookieCuttr-4dc24d9/cookiecuttr.css" rel="stylesheet" type="text/css"/>
+    <link href="../../Jquery/Plugins/cdwharton-cookieCuttr-4dc24d9/cookiecuttr.css" rel="stylesheet" type="text/css"/>
 
     <!--Importar JQuery-->
     <script src="../../Jquery/jquery-3.6.0.min.js"></script>

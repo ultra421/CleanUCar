@@ -7,14 +7,14 @@ function printInfo ($log,$nombre,$pass) {
             </a>
             <?php 
         } else { ?>
-            <a href = "LogPage.php">
+            <a href = "../Login/LogPage.php">
                 <h2>Login</h2>
             </a>
             <?php
         } 
     } else {
         ?>
-        <a href = "LogPage.php">
+        <a href = "../Login/LogPage.php">
                 <h2>Login</h2>
         </a>
         <?php

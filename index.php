@@ -1,4 +1,4 @@
 <?php
-header("Location: /CleanUCarV1/Paginas/MainLand/index.php");
+header("Location: Paginas/MainLand/index.php");
 exit();
 ?>

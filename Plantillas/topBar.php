@@ -4,17 +4,17 @@
     </div>
     <div id = "navigation">
         <div>
-            <a href = "userProfile.php">
+            <a href = "../../Paginas/Cuenta/userProfile.php">
                 <img src = "../../Imagenes/IconoUsuario.png">
             </a>
         </div>
         <div>
-            <a href = "MainLand.php">
+            <a href = "../../Paginas/MainLand/index.php">
                 <img src = "../../Imagenes/Gps_icono.png">
             </a>
         </div>
         <div>
-            <a href = "VerifyPago.php">
+            <a href = "../../Paginas/PagosRealizados/VerifyPago.php">
                 <img src = "../../Imagenes/IconoVerificarPago.png">
             </a>
         </div>
