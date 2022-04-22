@@ -1,0 +1,15 @@
+#mainContent {
+    background-color:#78CAD2;
+    text-align: center;
+}
+#mainContent>h1 {
+    border-bottom: solid black;
+    padding-bottom: 3%;
+}
+#mainContent>a {
+    display: block;
+}
+#mainContent>a>div>img {
+    width: 50px;
+    height: 50px;
+}
