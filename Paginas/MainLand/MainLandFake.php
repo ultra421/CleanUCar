@@ -46,7 +46,7 @@ include "../../Plantillas/topBarMovile.php";
                     <img src = "../../Imagenes/stucom_logo.png">
                 </div>
                 <div id = ReservSubmit>
-                    <form method= "GET" action = "Pagar.php">
+                    <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
                         <input type = submit value = Reservar>
                     </form>
                 </div>
@@ -69,7 +69,7 @@ include "../../Plantillas/topBarMovile.php";
             </div>
             <div id = ReservSubmit>
                 <img src = "../../Imagenes/stucom_logo.png">
-                <form method= "GET" action = "Pagar.php">
+                <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
                     <input type = submit value = Reservar>
                 </form>
             </div>
