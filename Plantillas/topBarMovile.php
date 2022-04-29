@@ -4,7 +4,7 @@
             <?php printInfo($log,$nombre,$pass) ?> <!-- Print info del usuario/boton login -->
         </div>
         <div id = "settings">
-            <a href = "Settings.php">
+            <a href = "../../Paginas/Settings/Settings.php">
                 <img src = "../../Imagenes/barras.png">
             </a>
         </div>
