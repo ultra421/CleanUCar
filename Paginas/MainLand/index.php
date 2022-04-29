@@ -33,7 +33,7 @@ include "../../Plantillas/topBarMovile.php";
 <a id = fakeMap href = "MainLandFake.php">
 
         <div>
-            <img src = "../../Imagenes/fakemap.png" >
+            <img src = "../../Imagenes/fakemap.png" >  
         </div>
     </a>
 
