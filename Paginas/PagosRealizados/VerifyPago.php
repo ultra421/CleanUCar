@@ -7,7 +7,7 @@ if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClea
     $nombre = $_SESSION["userInfoClean"]["nombre"];
     $pass = $_SESSION["userInfoClean"]["pass"];
 } else {
-    //header("Location: ../../Paginas/LogPage.php");
+    header("Location: ../Login/LogPage.php");
 }
 ?>
 

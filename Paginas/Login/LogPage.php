@@ -53,7 +53,6 @@ include "../../Plantillas/userInfoPrint.php";
             </div>
             <div id = "registerLink">
                 <a href = "RegPage.php">Pagina de registro</a>
-                a
             </div>
         </form>
     </div>

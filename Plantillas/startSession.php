@@ -6,9 +6,6 @@ if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClea
     //Comprovar que session este log establecida sino devolver
     $nombre = $_SESSION["userInfoClean"]["nombre"];
     $pass = $_SESSION["userInfoClean"]["pass"];
-} else {
-    $nombre = "null";
-    $pass = "null";
 }
 
 if (isset($_SESSION["userInfoClean"]["log"])) {
