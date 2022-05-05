@@ -2,7 +2,6 @@
 include "../../Plantillas/startSession.php";
 include "../../Plantillas/userInfoPrint.php";
 
-
 if (isset($_GET["nombre"]) && isset($_GET["pass"])) {
     //Comprovar Gets
     $nombre = $_GET["nombre"];
