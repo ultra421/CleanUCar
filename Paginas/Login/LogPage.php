@@ -39,14 +39,39 @@ include "../../Plantillas/userInfoPrint.php";
             unset($_SESSION["userInfoClean"]["error"]);
         }
     ?>
+
+    <form action="LogUser.php" method = "POST">
+        <div class= "formInput">
+            <h2>Nombre de usuario</h3>
+            <input type="text" name="nombre"  placeholder="TuNombre" required>
+        </div>
+        <div class="formInput">
+            <h2>Contraseña</h3>
+            <input type="password" name="pass" placeholder="******" required>
+        </div>
+        <div id="enviar">
+            <input type="submit" value="enviar">
+        </div>
+        <div id = "registerLink">
+            <a href = "RegPage.php">Pagina de registro</a>
+        </div>
+
+
+    </form>
+
+
+
+
+    <!--
     <div id = logForm>
         <form action = "userProfile.php" method = GET >
+
             <div class = formInput>
                 <h4>Nombre de usuario</h4><input type = text name = nombre placeholder = lorem@ipsum.com required>
             </div>
             <div class = formInput>
                 <h4>Contraseña</h4><input type = text name = pass placeholder = ****** required>
-                <!--    <a href = "LogPage.php"><h5>Has olvidado la contraseña?</h5></a> -->
+                  <a href = "LogPage.php"><h5>Has olvidado la contraseña?</h5></a> 
             </div>
             <div id = "logButton">
                 <input type = submit value = Logear>
@@ -57,6 +82,7 @@ include "../../Plantillas/userInfoPrint.php";
         </form>
     </div>
     </div>
+    -->
     <?php
         include "../../Plantillas/bottomBar.php";
         include "../../Plantillas/bottomBarMovile.php";
