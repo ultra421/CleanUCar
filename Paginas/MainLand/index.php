@@ -16,27 +16,71 @@ include "../../Plantillas/userInfoPrint.php";
     <link rel="stylesheet" href="../../CSS/Base.css">
     <link rel="stylesheet" href="../../CSS/MainLand.css">
     <link href="../../Jquery/Plugins/cdwharton-cookieCuttr-4dc24d9/cookiecuttr.css" rel="stylesheet" type="text/css"/>
-
+    <link rel="stylesheet" href="../../CSS/MainLandFake.css">
     <!--Importar JQuery-->
     <script src="../../Jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../Jquery/jqueryMainLand.js" defer></script>
     <script src="../../Jquery/Plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
     <script src="../../Jquery/Plugins/cdwharton-cookieCuttr-4dc24d9/jquery.cookiecuttr.js"></script>
     
 
 </head>
 <body>
+    <div id="divdesaparecedor">
+    </div>
+    
+    <div id="divemergente">
+     <h2>Mas Imagenes</h2>
+    </div>
+    
 <?php 
 include "../../Plantillas/topBar.php";
 include "../../Plantillas/topBarMovile.php";
 ?>
 <div id = mainContent>
-<a id = fakeMap href = "MainLandFake.php">
-
-        <div>
-            <img src = "../../Imagenes/fakemap.png" >  
+<div id = Reserv>
+            <div id = ReservInfo>
+                <h3>Nombre Lavado</h3>
+                <div>
+                    <img src = "../../Imagenes/BlackStar.png">
+                    4,7
+                </div>
+            </div>
+            <div id = ReservButton>
+                <h2>Precio: 12€</h2>
+                <div id = ReservContent>
+                    <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
+                    
+                </div>
+                <div id = ReservSubmit>
+                    <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
+                        <input type = submit value = Reservar>
+                    </form>
+                </div>
+            </div>
         </div>
-    </a>
+        <div id = fakeMap>
+            
+                <div>
+                    <img id = fakeImage src = "../../Imagenes/fakemap.png">
+                </div>
 
+        </div>
+        <div id = ReservMobile>
+            <div id = ReservRating>
+                <div>
+                    <img src = "../../Imagenes/BlackStar.png">
+                    4,7
+                    <h3>Nombre Lavado</h3>
+                </div>
+            </div>
+            <div id = ReservSubmit>
+                <img id="masimagenesmovile" src = "../../Imagenes/stucom_logo.png">
+                <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
+                    <input type = submit value = Reservar>
+                </form>
+            </div>
+        </div>
 </div>
 <?php
 include "../../Plantillas/bottomBar.php";

@@ -30,29 +30,49 @@ include "../../Plantillas/userInfoPrint.php";
         include "../../Plantillas/topBarMovile.php";
     ?>
     <div id = mainContent>
-        <div id = LoginTitle>
+        <form action="RegisVerify.php">
             <h2>Login</h2>
-        </div>
-        <div id = logForm>
-            <form action = "RegisVerify.php" method = GET >
-                <h3>La contraseña debe tener un minimo de 7 caracteres, una mayuscula y una minuscula</h3>
-                <div class = formInput>
-                    <h4>Nombre de usuario</h4><input type = text name = nombre placeholder = lorem@ipsum.com>
-                    <input type = "hidden" value = "true" name = "register">
+            <div class= "izquierda">
+                <div class= "formInput">
+                    <h3>Nombre de usuario</h4> 
+                    <input type="text" name = "nombre" size="40%" placeholder = "Tu nombre">
                 </div>
-                <div class = formInput>
-                    <h4>Contraseña</h4><input type = text name = pass placeholder = ******>
+                <div class= "formInput">
+                    <h3>Contraseña</h4>
+                    <input type="password" name="pass" size="40%" placeholder ="******">
+
                 </div>
-                <div class = formInput>
-                    <h4>Verifica Contraseña</h4><input type = text name = passVerify placeholder = ******>
-                    <a href = "LogPage.php"><h5>Has olvidado la contraseña?</h5></a>
+                <div class= "formInput">
+                    <h3>Repetir Contraseña</h4>
+                    <input type="password" name="pass2" size="40%" placeholder ="******">
+
                 </div>
-                <div>
-                    <input type = submit value = Registrar>
+
+            </div> 
+            <div class = "derecha"> 
+                <div class= "formInput">
+                    <h3>Email</h4>
+                    <input type="email" name="email" size="40%" placeholder="CleanUCar@gmail.com">
                 </div>
-            </form>
-        </div>
-    </div>
+                <div class= "formInput">
+                    <h3>Telefono</h4>
+                    <input type="text" name="telefono" size="40%" placeholder ="665602524">
+                </div>
+                <div class= "formInput">
+                    <h3>Genero</h4>
+                    <select name="genero" >
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Otros">Otros</option>
+                    </select>
+                </div>
+            </div>
+            <div class="aux">        
+            </div>
+            <div id="enviar">
+            <input type="submit" value="enviar">
+            </div>
+        </form>
     <?php
         include "../../Plantillas/bottomBar.php";
         include "../../Plantillas/bottomBarMovile.php";

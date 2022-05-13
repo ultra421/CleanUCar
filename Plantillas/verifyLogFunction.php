@@ -1,41 +1,28 @@
-<?php
+<?php 
+/**
+ * Verificar informacion
+ * 
+ * @param email $email
+ * @param pass $pass
+ * 
+ * @return true si se compruevan los datos, si no false
+ *   */ 
+function verifyInfo($email,$pass) {
 
-function verifyInfo($nombre,$pass) {
+    include "DBConnect.php";
+    $query = $dbcon -> prepare("SELECT pass FROM usuario WHERE email = '$email'");
 
-    if (isset($nombre) && isset($pass)) { // valores no null
+    if ($query -> execute()) {
 
-        $mysqli = new mysqli("localhost:3306","root","","transversal");
+        $result = $query -> fetch(PDO::FETCH_ASSOC);
 
-        if ($mysqli -> connect_errno) {
-
-            echo "Failed to connect: " . $mysqli->connect_error;
-
-            return false;
-
-        } else {
-
-            //echo "Yes connection </br>";
-
-        }
-
-        $sql = "SELECT pass FROM usuarios where nombre = '$nombre';";
-
-        $result = $mysqli -> query($sql) -> fetch_assoc()["pass"]; // Result = password
-
-        //echo $result;
-
-        if ($pass == $result) {
-
-            $mysqli->close();
+        if ($pass == $result["pass"]) {
+            
             return true;
 
-            //echo "Sesion iniciada";
-
         } else {
 
             return false;
-                
-            header("Location: test3_login.php");
 
         }
 

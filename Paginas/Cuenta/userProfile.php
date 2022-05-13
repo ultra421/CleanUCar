@@ -1,8 +1,6 @@
 <?php 
-session_start();
 include "../../Plantillas/startSession.php";
 include "../../Plantillas/userInfoPrint.php";
-
 
 if (isset($_GET["nombre"]) && isset($_GET["pass"])) {
     //Comprovar Gets
@@ -10,13 +8,12 @@ if (isset($_GET["nombre"]) && isset($_GET["pass"])) {
     $pass = $_GET["pass"];
     $_SESSION["userInfoClean"]["nombre"] = $nombre;
     $_SESSION["userInfoClean"]["pass"] = $pass;
-
 }else if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClean"]["pass"])) {
     //Comprovar que session este log establecida sino devolver
     $nombre = $_SESSION["userInfoClean"]["nombre"];
     $pass = $_SESSION["userInfoClean"]["pass"];
 } else {
-    //header("Location: ../../Paginas/LogPage.php");
+    header("Location: ../Login/LogPage.php");
 }
 /*
 if (verifyInfo($nombre,$pass)) {
