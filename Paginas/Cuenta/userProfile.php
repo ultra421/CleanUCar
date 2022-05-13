@@ -1,33 +1,7 @@
 <?php 
 include "../../Plantillas/startSession.php";
 include "../../Plantillas/userInfoPrint.php";
-
-if (isset($_GET["nombre"]) && isset($_GET["pass"])) {
-    //Comprovar Gets
-    $nombre = $_GET["nombre"];
-    $pass = $_GET["pass"];
-    $_SESSION["userInfoClean"]["nombre"] = $nombre;
-    $_SESSION["userInfoClean"]["pass"] = $pass;
-}else if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClean"]["pass"])) {
-    //Comprovar que session este log establecida sino devolver
-    $nombre = $_SESSION["userInfoClean"]["nombre"];
-    $pass = $_SESSION["userInfoClean"]["pass"];
-} else {
-    header("Location: ../Login/LogPage.php");
-}
-/*
-if (verifyInfo($nombre,$pass)) {
-    $log = 1;
-    $_SESSION["userInfoClean"]["log"] = $log; 
-} else {
-    $log = 0;
-    unset($_SESSION["userInfoClean"]["nombre"]);
-    unset($_SESSION["userInfoClean"]["pass"]);
-    echo "<h1>AAAAAAAAAAAAAAAAa</h1>";
-    $_SESSION["userInfoClean"]["error"] = "Has introducido el usuario/contraseña mal";
-    //header("Location: ../../Paginas/Login/LogPage.php");
-}
-*/
+include "../../Plantillas/logRequired.php";
 ?>
 
 <!DOCTYPE html>

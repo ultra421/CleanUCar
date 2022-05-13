@@ -43,14 +43,14 @@ include "../../Plantillas/userInfoPrint.php";
     <form action="LogUser.php" method = "POST">
         <div class= "formInput">
             <h2>Nombre de usuario</h3>
-            <input type="text" name="nombre"  placeholder="TuNombre" required>
+            <input type="text" name="email"  placeholder="Email" required>
         </div>
         <div class="formInput">
             <h2>Contraseña</h3>
             <input type="password" name="pass" placeholder="******" required>
         </div>
         <div id="enviar">
-            <input type="submit" value="enviar">
+            <input type="submit" value="enviar" name = "submit">
         </div>
         <div id = "registerLink">
             <a href = "RegPage.php">Pagina de registro</a>

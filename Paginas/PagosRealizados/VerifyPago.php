@@ -1,14 +1,7 @@
 <?php 
 include "../../Plantillas/startSession.php";
 include "../../Plantillas/userInfoPrint.php";
-
-if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClean"]["pass"])) {
-    //Comprovar que session este log establecida sino devolver
-    $nombre = $_SESSION["userInfoClean"]["nombre"];
-    $pass = $_SESSION["userInfoClean"]["pass"];
-} else {
-    header("Location: ../Login/LogPage.php");
-}
+include "../../Plantillas/logRequired.php";
 ?>
 
 <!DOCTYPE html>

@@ -4,29 +4,18 @@
 
 session_start();
 
-$nombre;
-$pass;
-$log;
+$nombre = null; // Nombre a mostrar la web
+$email = null; // Email para log en cada pagina
+$pass = null; //
+$log = null;
 
-if (isset($_SESSION["userInfoClean"]["nombre"]) && isset($_SESSION["userInfoClean"]["pass"])) {
-
-    $_SESSION["userInfoClean"]["nombre"];
-    $_SESSION["userInfoClean"]["pass"];
-    include "verifyLogFunction.php";
-    //Comprovar que session este log establecida sino devolver
-    if (verifyInfo($_SESSION["userInfoClean"]["nombre"],$_SESSION["userInfoClean"]["pass"])) {
-        $log = 1;
-
-    } else {
-        $log = 0;
-        $_SESSION["userInfoClean"]["nombre"] = null;
-        $_SESSION["userInfoClean"]["pass"] = null;
-    }
-
+if (isset($_SESSION["nombre"]) && isset($_SESSION["pass"]) && $_SESSION["email"] && $_SESSION["log"]) { // Si ya existe session
+    $nombre = $_SESSION["nombre"];
+    $pass = $_SESSION["pass"];
+    $email = $_SESSION["email"];
+    $log = $_SESSION["log"];
 } else {
-
     $log = 0;
-    
-
 }
+
 ?>

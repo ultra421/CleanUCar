@@ -1,6 +1,7 @@
 <?php 
 include "../../Plantillas/startSession.php";
 include "../../Plantillas/userInfoPrint.php";
+include "../../Plantillas/logRequired.php";
 ?>
 
 

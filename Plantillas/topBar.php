@@ -1,7 +1,3 @@
-<?php 
-include "startSession.php";
-?>
-
 <div id = "topBar">
     <div id = "logo">
         <img src = "../../Imagenes/stucom_logo.png">
