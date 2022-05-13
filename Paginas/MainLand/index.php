@@ -50,7 +50,6 @@ include "../../Plantillas/topBarMovile.php";
                 <h2>Precio: 12€</h2>
                 <div id = ReservContent>
                     <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
-                    
                 </div>
                 <div id = ReservSubmit>
                     <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
