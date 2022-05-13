@@ -15,7 +15,7 @@ if (isset($_SESSION["nombre"]) && isset($_SESSION["pass"]) && $_SESSION["email"]
     $email = $_SESSION["email"];
     $log = $_SESSION["log"];
 } else {
+
     $log = 0;
 }
-
 ?>
