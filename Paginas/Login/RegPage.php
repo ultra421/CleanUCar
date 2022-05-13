@@ -30,7 +30,7 @@ include "../../Plantillas/userInfoPrint.php";
         include "../../Plantillas/topBarMovile.php";
     ?>
     <div id = mainContent>
-        <form action="RegisVerify.php">
+        <form action="RegUser.php" method = "POST">
             <h2>Login</h2>
             <div class= "izquierda">
                 <div class= "formInput">
