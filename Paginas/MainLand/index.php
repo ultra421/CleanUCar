@@ -38,7 +38,13 @@ include "../../Plantillas/topBar.php";
 include "../../Plantillas/topBarMovile.php";
 ?>
 <div id = mainContent>
+<div id = fakeMap>   
+                <div>
+                    <img id = fakeImage src = "../../Imagenes/fakemap.png">
+                </div>
+        </div>
 <div id = Reserv>
+        <div id="reservpc">
             <div id = ReservInfo>
                 <h3>Nombre Lavado</h3>
                 <div>
@@ -58,13 +64,7 @@ include "../../Plantillas/topBarMovile.php";
                 </div>
             </div>
         </div>
-        <div id = fakeMap>
-            
-                <div>
-                    <img id = fakeImage src = "../../Imagenes/fakemap.png">
-                </div>
-
-        </div>
+</div>
         <div id = ReservMobile>
             <div id = ReservRating>
                 <div>
@@ -81,6 +81,8 @@ include "../../Plantillas/topBarMovile.php";
             </div>
         </div>
 </div>
+
+
 <?php
 include "../../Plantillas/bottomBar.php";
 include "../../Plantillas/bottomBarMovile.php";

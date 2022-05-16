@@ -1,25 +1,45 @@
 $( document ).ready(comenzar())
 
 function comenzar(){
-
+    let abierto = false;
     $("#divdesaparecedor").toggle();
     $("#divemergente").toggle();
 
     $("#Reserv").css({"position":"absolute","height":"79%","left": "-400px"});
 
 
+let muestraLateral=false;
+
+
+
+$(window).ready(function(){
+
+    if($(window).width() > 600 && !muestraLateral){
+        muestraLateral=true;
+        lateral();
+    }else if($(window).width() < 600 && muestraLateral){
+        muestraLateral=false;
+        inferior();
+    } 
+})
+
+
 //Desplegable lateral
-if(screen.width > 600){
-    console.log("pantalla lateral");
-    lateral();
-}else{
-    console.log("Pantalla inferior");
-    inferior();
-} 
-
-
 function lateral(){
 
+    
+    $("#fakeMap").click(function(){
+        if (abierto == false){
+            $("#Reserv").animate({"width":"30%", "left": "0px"});
+           
+            abierto = true;
+        }else{
+            $("#Reserv").animate({"width":"0%","left": "-400px"});
+            
+            abierto = false;
+        }
+      
+    })
 $("#Reservpc").show();
 $("#ReservContent").click(function(){
 
@@ -31,35 +51,11 @@ $("#divdesaparecedor").click(function(){
     $("#divemergente").toggle();
 }) 
 
-}
 
-function inferior(){
-
-    $("#Reservpc").hide();
-    $("#")
 
 }
 
 
 
 
-//Desplegable inferior
-
-
-
-
-
-let abierto = false;
-$(fakeMap).click(function(){
-    if (abierto == false){
-        $("#Reserv").animate({"width":"30%", "left": "0px"});
-       
-        abierto = true;
-    }else{
-        $("#Reserv").animate({"width":"0%","left": "-400px"});
-        
-        abierto = false;
-    }
-  
-})
 }
