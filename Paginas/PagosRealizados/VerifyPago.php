@@ -34,21 +34,25 @@ include "../../Plantillas/topBarMovile.php";
             <h2>Pago verificado</h2>
             <h3>En: Lorem Ipsum</h3>
             <img src = "../../Imagenes/qr-code.png">
+            <a href = "../Review/reviewForm.php">Subir una reseña</a>
         </div>
         <div class = deskQR>
             <h2>Pago verificado</h2>
             <h3>En: Lorem Ipsum</h3>
             <img src = "../../Imagenes/qr-code.png">
+            <a href = "../Review/reviewForm.php">Subir una reseña</a>
         </div>
         <div class = deskQR>
             <h2>Pago verificado</h2>
             <h3>En: Lorem Ipsum</h3>
             <img src = "../../Imagenes/qr-code.png">
+            <a href = "../Review/reviewForm.php">Subir una reseña</a>
         </div>
         <div class = deskQR>
             <h2>Pago verificado</h2>
             <h3>En: Lorem Ipsum</h3>
             <img src = "../../Imagenes/qr-code.png">
+            <a href = "../Review/reviewForm.php">Subir una reseña</a>
         </div>
         <div class = "mobileQR">
             <h2>Pago verificado</h2>
