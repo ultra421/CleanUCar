@@ -1,4 +1,15 @@
 <?php
-// Mejorar esto, no se puede confirmar solo por el log, es horrible
-// no funciona de ninguna manera por alguna razon: rehacer esto
+include "verifyLogFunction.php";
+if (isset($_SESSION["email"]) && isset($_SESSION["pass"])) {
+
+    if (!verifyInfo($_SESSION["email"],$_SESSION["pass"])) {
+
+        header("Location: ../Login/LogPage.php");
+        session_unset();
+
+    }
+} else {
+    header("Location: ../Login/LogPage.php");
+}
+
 ?>
