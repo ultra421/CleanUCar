@@ -6,8 +6,11 @@ include "../../Plantillas/verifyLogFunction.php";
 include "../../Plantillas/DBConnect.php";
 
 if (!isset($_POST["submit"])) {
-    header ("LOCATION: LogUser.php");
-}
+    header ("LOCATION: LogPage.php");
+   
+} /* else if ($_SESSION["email"] !== null && $_SESSION["pass"] !== null ) {
+    header ("LOCATION: LogPage.php");
+} Cambiar esto hacer que funciona */
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];

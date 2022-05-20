@@ -42,6 +42,7 @@ include "../../Plantillas/topBarMovile.php";
                 </div>
                 <div> <!-- Añadir este div a base y separar pagina en includes!! -->
                     <a href = "cerrarSession.php">Cerrar Session</a>
+                    <a href = "modificarCuenta.php">Modificar Datos</a>
                 </div>
             </div>
             <div id = "userReview">
@@ -87,7 +88,7 @@ include "../../Plantillas/topBarMovile.php";
                 </div>
                 <div> <!-- Añadir este div a base y separar pagina en includes!! -->
                     <a href = "cerrarSession.php">Cerrar Session</a>
-                    <a href = "modificarCuenta.php">Modificar Cuenta</a> 
+                    <a href = "modificarCuenta.php">Modificar Datos</a> 
                 </div>
             </div>
             <div id = userReview>
