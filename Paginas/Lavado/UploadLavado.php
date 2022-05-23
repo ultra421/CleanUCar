@@ -80,15 +80,38 @@ $user_id = $result["usuario_id"];
 $nombre = $_POST["nombre"];
 $ubicacion = $_POST["ubicacion"];
 
-//Query insert lavado
+//Comprovar que usuario no tenga ya un lavado
+//Implementar ajax para la modificacion de multiples lavados (aun no)
+//Query devuelve false si no hay nada
 
 $query = $dbcon -> prepare(
-    "INSERT INTO lavado values 
-    (null,'$nombre','$ubicacion',$user_id,$cocheResult,$lavadoResult)"
-    );
+    "SELECT usuario_id FROM lavado WHERE usuario_id = '$user_id'"
+);
 
 if ($query -> execute()) {
-    header("LOCATION: ../Cuenta/userProfile.php");
+    $result = $query -> fetch();
 }
+echo "vardump del query comprovar";
+var_dump($result);
+
+//Si no existe devuelve false sino sera array
+if ($result != false) {
+    header("LOCATION: ../Cuenta/errorCreacion.php");
+} else {
+    
+    //Query insert lavado
+
+    $query = $dbcon -> prepare(
+        "INSERT INTO lavado values 
+        (null,'$nombre','$ubicacion',$user_id,$cocheResult,$lavadoResult)"
+        );
+
+    if ($query -> execute()) {
+        header("LOCATION: ../Cuenta/userProfile.php");
+    }
+}
+
+
+
 
 ?>
