@@ -33,6 +33,7 @@ include "../../Plantillas/topBarMovile.php";
 
 <div id = mainContent>
     <form action = "uploadLavado.php" method = POST>
+        <h2>Crear Lavado</h2>
         Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes">
         Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion">
         <h3>Tipos de vehiculos</h3>

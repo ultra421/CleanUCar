@@ -17,13 +17,68 @@ if ($query -> execute()) {
     header ("LOCATION: userProfile.php");
 }
 
-$nombre = $result["nombre"];
-$email = $result["email"];
-$telefono = $result["telefono"];
-$genero = $result["genero"];
-$pass = $result["pass"];
+//Sacar de la pagina si no tiene ningun lavado
 
-//Conseguir datos para rellenar los forms
+$usuario_id = $result["usuario_id"];
+$query = $dbcon -> prepare("SELECT count(usuario_id) from lavado where usuario_id = '$usuario_id'");
+if ($query -> execute()) {
+    $result = $query -> fetch();
+}
+if ($result[0] == 0) {
+    header ("LOCATION: CrearLavado.php");
+}
+
+//Conseguir datos del lavado
+
+$query = $dbcon ->prepare("SELECT * from lavado where usuario_id = '$usuario_id'");
+if ($query -> execute()) {
+    $result = $query -> fetch();
+} else {
+    header ("LOCATION: error.php");
+}
+$lavadoResult = $result;
+
+//Conseguir datos de los tipos de vehiculos
+
+$vehiculos_id = $lavadoResult["vehiculos"];
+$query = $dbcon -> prepare(
+    "SELECT * from vehiculos where vehiculos_id = '$vehiculos_id'"
+);
+if ($query -> execute()) {
+    $result = $query -> fetch();
+}
+$vehiculoResult = $result;
+
+//Conseguir datos de los tipo de lavado
+
+$tipo_id = $lavadoResult["tipo"];
+$query = $dbcon -> prepare(
+    "SELECT * from tipo where tipo_id = '$tipo_id'"
+);
+if ($query -> execute()) {
+    $result = $query -> fetch();
+}
+$tipoResult = $result;
+
+//Funcion para pasar si true para el html
+
+function passToHtml ($input) {
+    if ($input == 0) {
+        echo "";
+    } else {
+        echo "checked";
+    }
+}
+
+echo "</br>LAVADO RESULT</br>";
+var_dump($lavadoResult);
+echo "</br>VEHICULO RESULT</br>";
+var_dump($vehiculoResult);
+echo "</br>TIPO RESULT</br>";
+var_dump($tipoResult);
+$nombreLavado = $lavadoResult["nombre"];
+$ubicacion = $lavadoResult["ubicacion"];
+
 
 ?>
 
@@ -55,47 +110,53 @@ include "../../Plantillas/topBarMovile.php";
 ?>
 
 <div id = mainContent>
+    <h2>Modificar Lavado</h2>
     <form action="modificarLavadoUpload.php" method = "POST">
-        Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes">
-        Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion">
+        Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes" value = <?php echo $nombreLavado ?>>
+        Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion" value = <?php echo $ubicacion ?>>
         <h3>Tipos de vehiculos</h3>
-        <input type = checkbox name = coche require>
+        <input type = checkbox name = coche <?php passToHtml($vehiculoResult[1]) ?>>
         <label for = coche>Acepta coches?</label>
 
-        <input type = checkbox name = moto require>
+        <input type = checkbox name = moto <?php passToHtml($vehiculoResult[2]) ?>>
         <label for = moto>Acepta motos?</label>
 
-        <input type = checkbox name = furgoneta>
+        <input type = checkbox name = furgoneta <?php passToHtml($vehiculoResult[3]) ?> >
         <label for = furgoneta>Acepta furgonetas?</label>
         
-        <input type = checkbox name = camion>
+        <input type = checkbox name = camion <?php passToHtml($vehiculoResult[4]) ?>>
         <label for = camion>Acepta camiones?</label>
 
         <h3>Tipo de lavado</h3>
 
-        <input type = checkbox name = tunel>
+        <input type = checkbox name = tunel <?php passToHtml($tipoResult[1]) ?>>
         <label for = tunel>Tunel</label>
 
-        <input type = checkbox name = presion>
+        <input type = checkbox name = presion <?php passToHtml($tipoResult[2]) ?>>
         <label for = presion>Presion</label>
 
-        <input type = checkbox name =mano>
+        <input type = checkbox name = mano <?php passToHtml($tipoResult[3]) ?>>
         <label for = mano>Mano</label>
 
-        <input type = checkbox name =ecologico>
+        <input type = checkbox name =ecologico <?php passToHtml($tipoResult[4]) ?>>
         <label for = ecologico>Ecologico</label>
 
-        <input type = checkbox name = aspirado>
+        <input type = checkbox name = aspirado <?php passToHtml($tipoResult[5]) ?>>
         <label for = aspirado>Aspirado</label>
 
-        <input type = checkbox name = cera>
+        <input type = checkbox name = cera <?php passToHtml($tipoResult[6]) ?>>
         <label for = cerca>Cera</label>
 
-        <input type = checkbox name = pulido>
+        <input type = checkbox name = pulido <?php passToHtml($tipoResult[7]) ?>>
         <label for = pulido>Pulido</label>
 
         <br></br>
-        <input type = submit name = submit value = "Añadir lavado">
+        <input type = submit name = submit value = "Modificar lavado">
+    </form>
+    <form action = eliminarLavado.php method = "POST">
+        <!-- Input para enviar la id de lavado -->
+        <input type = hidden name = lavado_id value = <?php echo $lavadoResult["lavado_id"]; ?>>
+        <input type = submit name = submit value = "Eliminar lavado">
     </form>
 </div>
 

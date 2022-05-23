@@ -22,8 +22,6 @@ $pass = $result["pass"];
 
 //Conseguir datos para rellenar los forms
 
-
-
 ?>
 
 <!DOCTYPE html>
