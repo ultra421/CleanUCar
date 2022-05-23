@@ -88,7 +88,9 @@ include "../../Plantillas/topBarMovile.php";
                 </div>
                 <div> <!-- Añadir este div a base y separar pagina en includes!! -->
                     <a href = "cerrarSession.php">Cerrar Session</a>
-                    <a href = "modificarCuenta.php">Modificar Datos</a> 
+                    <a href = "modificarCuenta.php">Modificar Datos</a>
+                    <a href = "../Lavado/CrearLavado.php">Crear Lavado</a> 
+                    <a href = "../Lavado/ModificarLavado.php">Modificar Lavado</a>
                 </div>
             </div>
             <div id = userReview>
