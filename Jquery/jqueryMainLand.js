@@ -15,8 +15,7 @@ if(screen.width > 600){
 }else{
     console.log("Pantalla inferior");
     inferior();
-} 
-
+}
 
 function lateral(){
 
@@ -40,17 +39,13 @@ function inferior(){
 
 }
 
+}
 
-
-
-//Desplegable inferior
-
-
-
-
+// Abrir fakemap
 
 let abierto = false;
 $(fakeMap).click(function(){
+
     if (abierto == false){
         $("#Reserv").animate({"width":"30%", "left": "0px"});
        
@@ -60,6 +55,23 @@ $(fakeMap).click(function(){
         
         abierto = false;
     }
+
+    // Voy a poner aqui lo de ajax para no hacer 2 funciones
+
+    if (abierto == true) {
+        console.log("asking for ajax");
+        $.ajax({
+            type: "POST",
+            url: "../../Ajax/getLavadoInfo.php",
+            dataType : "json",
+            data :{},
+            success : function(data){
+                $("#tituloLavado").html(data.nombre);
+                $("#Precio").html(data.precio + "€");
+                console.log(data);
+            }
+        });
+    }
   
 })
-}
+
