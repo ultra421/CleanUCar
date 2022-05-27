@@ -78,12 +78,13 @@ if ($query -> execute()) {
 $user_id = $result["usuario_id"];
 $nombre = $_POST["nombre"];
 $ubicacion = $_POST["ubicacion"];
+$precio = $_POST["precio"];
 
 //Query confirmar que sea el propetario del lavado (how???)
 
 $query = $dbcon -> prepare(
     "UPDATE lavado SET 
-    nombre = '$nombre', ubicacion = '$ubicacion', usuario_id = $user_id, vehiculos = $cocheResult, tipo = $lavadoResult
+    nombre = '$nombre', ubicacion = '$ubicacion', precio = $precio, usuario_id = $user_id, vehiculos = $cocheResult, tipo = $lavadoResult
     WHERE usuario_id = $user_id"
     );
 

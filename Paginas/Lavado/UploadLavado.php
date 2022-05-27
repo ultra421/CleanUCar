@@ -79,6 +79,7 @@ if ($query -> execute()) {
 $user_id = $result["usuario_id"];
 $nombre = $_POST["nombre"];
 $ubicacion = $_POST["ubicacion"];
+$precio = $_POST["precio"];
 
 //Comprovar que usuario no tenga ya un lavado
 //Implementar ajax para la modificacion de multiples lavados (aun no)
@@ -103,7 +104,7 @@ if ($result != false) {
 
     $query = $dbcon -> prepare(
         "INSERT INTO lavado values 
-        (null,'$nombre','$ubicacion',$user_id,$cocheResult,$lavadoResult)"
+        (null,'$nombre','$ubicacion',$precio,$user_id,$cocheResult,$lavadoResult)"
         );
 
     if ($query -> execute()) {

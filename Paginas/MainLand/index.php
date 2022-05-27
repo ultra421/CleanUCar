@@ -32,7 +32,6 @@ include "../../Plantillas/userInfoPrint.php";
     <div id="divemergente">
      <h2>Mas Imagenes</h2>
     </div>
-    
 <?php 
 include "../../Plantillas/topBar.php";
 include "../../Plantillas/topBarMovile.php";
@@ -40,14 +39,14 @@ include "../../Plantillas/topBarMovile.php";
 <div id = mainContent>
 <div id = Reserv>
             <div id = ReservInfo>
-                <h3>Nombre Lavado</h3>
+                <h3 id = tituloLavado>null</h3>
                 <div>
                     <img src = "../../Imagenes/BlackStar.png">
-                    4,7
+                    reviewToDo
                 </div>
             </div>
             <div id = ReservButton>
-                <h2>Precio: 12€</h2>
+                <h2 id = Precio>Precio: null</h2>
                 <div id = ReservContent>
                     <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
                 </div>
@@ -59,11 +58,9 @@ include "../../Plantillas/topBarMovile.php";
             </div>
         </div>
         <div id = fakeMap>
-            
-                <div>
-                    <img id = fakeImage src = "../../Imagenes/fakemap.png">
-                </div>
-
+            <div>
+                <img id = fakeImage src = "../../Imagenes/fakemap.png">
+            </div>
         </div>
         <div id = ReservMobile>
             <div id = ReservRating>

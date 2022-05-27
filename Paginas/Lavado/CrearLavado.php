@@ -34,8 +34,9 @@ include "../../Plantillas/topBarMovile.php";
 <div id = mainContent>
     <form action = "uploadLavado.php" method = POST>
         <h2>Crear Lavado</h2>
-        Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes">
-        Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion">
+        Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes" required>
+        Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion" required>
+        Precio<input type = number name = precio required>
         <h3>Tipos de vehiculos</h3>
         <input type = checkbox name = coche require>
         <label for = coche>Acepta coches?</label>
