@@ -95,24 +95,63 @@ if ($query -> execute()) {
 echo "vardump del query comprovar";
 var_dump($result);
 
-//Si no existe devuelve false sino sera array
+//Si no existe devuelve false sino sera array, solo queremos un lavado por usuario demomento
 if ($result != false) {
     header("LOCATION: ../Cuenta/errorCreacion.php");
 } else {
     
     //Query insert lavado
-
+    $dbcon -> beginTransaction();
     $query = $dbcon -> prepare(
         "INSERT INTO lavado values 
         (null,'$nombre','$ubicacion',$precio,$user_id,$cocheResult,$lavadoResult)"
         );
 
-    if ($query -> execute()) {
-        header("LOCATION: ../Cuenta/userProfile.php");
+    if (!($query -> execute())) {
+        $dbcon -> rollback();
+        echo "error insert lavado";
+        //header("LOCATION: CrearLavado.php");
     }
+
+    //Query insertar imagen
+
+    $infoFile = $_FILES["imagen"];
+    $fileName = $infoFile["name"];
+    $tempName = $infoFile["tmp_name"];
+
+    //Necesitamos la id del lavado
+
+    $query = $dbcon -> prepare (
+        "SELECT lavado_id FROM lavado WHERE usuario_id = '$user_id'"
+    );
+
+    if (!($query -> execute())) {
+        $dbcon -> rollback();
+        echo "Fail de sleect id lavaos";
+    }
+    
+    $result = $query -> fetch();
+    $lavado_id = $result["lavado_id"];
+    $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+    $hashedName = hash('md5',$fileName.rand(0,99999999));
+    $path = $hashedName.".".$extension; // Archivo.extension
+
+    $query = $dbcon -> prepare("INSERT INTO imagenes_lavado values (null,'$lavado_id','$path','no desc')");
+
+    if ($query -> execute()) {  
+        
+        $finalRoute = "../../Imagenes/lavados/".$path;
+
+        if (move_uploaded_file($tempName,$finalRoute)) {
+            $dbcon -> commit();
+            //header('location: ../Cuenta/userProfile.php');
+        } else {
+            $dbcon -> rollback();
+            echo "error";
+        }
+
+    }
+
 }
-
-
-
 
 ?>
