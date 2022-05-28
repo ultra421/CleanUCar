@@ -38,45 +38,49 @@ include "../../Plantillas/topBarMovile.php";
 ?>
 <div id = mainContent>
 <div id = Reserv>
-            <div id = ReservInfo>
-                <h3 id = tituloLavado>null</h3>
-                <div>
-                    <img src = "../../Imagenes/BlackStar.png">
-                    reviewToDo
-                </div>
-            </div>
-            <div id = ReservButton>
-                <h2 id = Precio>Precio: null</h2>
-                <div id = ReservContent>
-                    <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
-                </div>
-                <div id = ReservSubmit>
-                    <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
-                        <input type = submit value = Reservar>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div id = fakeMap>
+        <div id = ReservInfo>
+            <h3 id = tituloLavado>null</h3>
             <div>
-                <img id = fakeImage src = "../../Imagenes/fakemap.png">
+                <img src = "../../Imagenes/BlackStar.png">
+                reviewToDo
             </div>
         </div>
-        <div id = ReservMobile>
-            <div id = ReservRating>
-                <div>
-                    <img src = "../../Imagenes/BlackStar.png">
-                    4,7
-                    <h3>Nombre Lavado</h3>
-                </div>
+        <div id = ReservButton>
+            <h2 id = Precio>Precio: null</h2>
+            <div id = ReservContent>
+                <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
+            </div>
+            <div id = moveLavados>
+                <button type = button id = nextLavado>Anterior lavado</button>
+                <button type = button id = previoLavado>Siguiente lavado</button>
             </div>
             <div id = ReservSubmit>
-                <img id="masimagenesmovile" src = "../../Imagenes/stucom_logo.png">
                 <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
                     <input type = submit value = Reservar>
                 </form>
             </div>
         </div>
+    </div>
+    <div id = fakeMap>
+        <div>
+            <img id = fakeImage src = "../../Imagenes/fakemap.png">
+        </div>
+    </div>
+    <div id = ReservMobile>
+        <div id = ReservRating>
+            <div>
+                <img src = "../../Imagenes/BlackStar.png"><
+                4,7
+                <h3>Nombre Lavado</h3>
+            </div>
+        </div>
+        <div id = ReservSubmit>
+            <img id="masimagenesmovile" src = "../../Imagenes/stucom_logo.png">
+            <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
+                <input type = submit value = Reservar>
+            </form>
+        </div>
+    </div>
 </div>
 <?php
 include "../../Plantillas/bottomBar.php";

@@ -41,6 +41,15 @@ function inferior(){
 
 }
 
+// Funcion para actualizar sidebar izquierda info del lavado
+
+function updateLavado(data){
+    $("#tituloLavado").html(data.nombre);
+    $("#Precio").html(data.precio + "€");
+    sessionStorage.setItem("lavado",data.lavado_id);
+    console.log(data); 
+}
+
 // Abrir fakemap
 
 let abierto = false;
@@ -65,11 +74,12 @@ $(fakeMap).click(function(){
             url: "../../Ajax/getLavadoInfo.php",
             dataType : "json",
             data :{},
-            success : function(data){
+            success : function(data) {
                 $("#tituloLavado").html(data.nombre);
                 $("#Precio").html(data.precio + "€");
-                console.log(data);
-            }
+                sessionStorage.setItem("lavado",data.lavado_id);
+                console.log(data); 
+            } 
         });
     }
   
@@ -89,3 +99,43 @@ $("#masimagenes").click(function(){
         }
     })
 });
+
+$("#nextLavado").click(function() {
+    console.log("next lavado >" + sessionStorage.getItem("lavado"));    
+    $.ajax({
+        type: "POST",
+        url: "../../Ajax/nextLavado.php",
+        dataType : "json",
+        data: {lavado : sessionStorage.getItem("lavado")},
+        success : function(data) {
+            $("#tituloLavado").html(data.nombre);
+            $("#Precio").html(data.precio + "€");
+            sessionStorage.setItem("lavado",data.lavado_id);
+            console.log(data); 
+        },
+        error: function(a,b,c) {
+            console.log("erorr :((((");
+            console.log(a,b,c);
+        }
+    })
+})
+
+$("#previoLavado").click(function() {
+    console.log("next lavado <" + sessionStorage.getItem("lavado"))
+    $.ajax({
+        type: "POST",
+        url: "../../Ajax/nextLavado.php",
+        dataType : "json",
+        data: {lavado : sessionStorage.getItem("lavado")},
+        success : function(data) {
+            $("#tituloLavado").html(data.nombre);
+            $("#Precio").html(data.precio + "€");
+            sessionStorage.setItem("lavado",data.lavado_id);
+            console.log(data); 
+        },
+        error: function(a,b,c) {
+            console.log("erorr :((((");
+            console.log(a,b,c);
+        }
+    })
+})

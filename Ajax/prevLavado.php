@@ -1,8 +1,10 @@
 <?php 
 include "../Plantillas/DBConnect.php";
 //Añadir where
+$lavadoID = intval($_POST["lavado"]);
 $query = $dbcon -> prepare(
-    "SELECT nombre,precio,lavado_id FROM lavado"
+    "SELECT nombre,precio,lavado_id FROM lavado 
+    WHERE lavado_id = (SELECT MIN(lavado_id) WHERE lavado_id < $lavadoID)"
 );
 
 if ($query -> execute()) {
@@ -10,4 +12,3 @@ if ($query -> execute()) {
     $resultJSON = json_encode($result);
     echo $resultJSON;
 }
-?>
