@@ -75,3 +75,17 @@ $(fakeMap).click(function(){
   
 })
 
+$("#masimagenes").click(function(){
+    $.ajax({
+        type: "POST",
+        url: "../../Ajax/getImagen.php",
+        dataType : "json",
+        data: {},
+        success : function(data){
+            console.log(data)
+            $("#divemergente").append(
+                "<img src ='../../Imagenes/lavados/" + data.direccion+"'>"
+            )
+        }
+    })
+});
