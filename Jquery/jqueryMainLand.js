@@ -101,17 +101,20 @@ $("#masimagenes").click(function(){
 });
 
 $("#nextLavado").click(function() {
-    console.log("next lavado >" + sessionStorage.getItem("lavado"));    
+    console.log("asking for next id actual = " + sessionStorage.getItem("lavado"));    
     $.ajax({
         type: "POST",
         url: "../../Ajax/nextLavado.php",
         dataType : "json",
         data: {lavado : sessionStorage.getItem("lavado")},
         success : function(data) {
-            $("#tituloLavado").html(data.nombre);
-            $("#Precio").html(data.precio + "€");
-            sessionStorage.setItem("lavado",data.lavado_id);
-            console.log(data); 
+            // data sera false si no hay mas
+            if (data != false) {
+                $("#tituloLavado").html(data.nombre);
+                $("#Precio").html(data.precio + "€");
+                sessionStorage.setItem("lavado",data.lavado_id);
+                console.log(data); 
+            }  
         },
         error: function(a,b,c) {
             console.log("erorr :((((");
@@ -121,17 +124,20 @@ $("#nextLavado").click(function() {
 })
 
 $("#previoLavado").click(function() {
-    console.log("next lavado <" + sessionStorage.getItem("lavado"))
+    console.log("asking for previo id actual = " + sessionStorage.getItem("lavado"))
     $.ajax({
         type: "POST",
-        url: "../../Ajax/nextLavado.php",
+        url: "../../Ajax/prevLavado.php",
         dataType : "json",
         data: {lavado : sessionStorage.getItem("lavado")},
-        success : function(data) {
-            $("#tituloLavado").html(data.nombre);
-            $("#Precio").html(data.precio + "€");
-            sessionStorage.setItem("lavado",data.lavado_id);
-            console.log(data); 
+        success : function(data) { 
+            // data sera false si no hay mas
+            if (data != false) {
+                $("#tituloLavado").html(data.nombre);
+                $("#Precio").html(data.precio + "€");
+                sessionStorage.setItem("lavado",data.lavado_id);
+                console.log(data); 
+            } 
         },
         error: function(a,b,c) {
             console.log("erorr :((((");

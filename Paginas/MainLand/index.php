@@ -51,8 +51,8 @@ include "../../Plantillas/topBarMovile.php";
                 <img id="masimagenes" src = "../../Imagenes/stucom_logo.png">
             </div>
             <div id = moveLavados>
-                <button type = button id = nextLavado>Anterior lavado</button>
-                <button type = button id = previoLavado>Siguiente lavado</button>
+                <button type = button id = previoLavado>Anterior lavado</button>
+                <button type = button id = nextLavado>Siguiente lavado</button>
             </div>
             <div id = ReservSubmit>
                 <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
