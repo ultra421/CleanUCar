@@ -55,7 +55,8 @@ include "../../Plantillas/topBarMovile.php";
                 <button type = button id = nextLavado>Siguiente lavado</button>
             </div>
             <div id = ReservSubmit>
-                <form method= "GET" action = "../../Paginas/Pagar/Pagar.php">
+                <form method= "GET" action = "../../Paginas/Pagar/Pagar.php" id = pagar>
+                    <input type = hidden id = lavadoID>
                     <input type = submit value = Reservar>
                 </form>
             </div>

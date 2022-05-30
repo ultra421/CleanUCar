@@ -23,10 +23,9 @@ include "../../Plantillas/logRequired.php";
 
     <!--Importar JQuery-->
     <script src="../../Jquery/jquery-3.6.0.min.js"></script>
+    <script src="../../Jquery/jqueryPagar.js" defer></script>
     <script src="../../Jquery/Plugins/jquery-cookie-master/src/jquery.cookie.js"></script>
     <script src="../../Jquery/Plugins/cdwharton-cookieCuttr-4dc24d9/jquery.cookiecuttr.js"></script>
-    
-
 
 </head>
 
@@ -39,19 +38,19 @@ include "../../Plantillas/logRequired.php";
 
     <div id = mainContent>
         <h1>Pagina de Pago</h1>
-        <a href = "../../Paginas/PagosRealizados/VerifyPago.php">
+        <a href = "PagarUpload.php">
             <div>
                 <img src = "../../Imagenes/Visa-icon.png">
                 <h2>Tarjeta **** **** 1111</h2>
             </div>
         </a>
-        <a href = "../../Paginas/PagosRealizados/VerifyPago.php">
+        <a href = "PagarUpload.php">
             <div>
                 <img src = "../../Imagenes/Visa-icon.png">
                 <h2>Tarjeta **** ***     * 1111</h2>
             </div>
         </a>
-        <a href = "../../Paginas/PagosRealizados/VerifyPago.php">
+        <a href = "PagarUpload.php">
             <div>
                 <img src = "../../Imagenes/Visa-icon.png">
                 <h2>Tarjeta **** **** 1111</h2>

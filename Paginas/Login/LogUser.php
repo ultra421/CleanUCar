@@ -18,7 +18,7 @@ $pass = $_POST["pass"];
 if (verifyInfo($email,$pass)) {
     
     //$query = $dbcon -> prepare("SELECT pass FROM usuario WHERE email = '$email'");
-    $query = $dbcon -> prepare("SELECT nombre,pass,email FROM usuario where email = '$email'");
+    $query = $dbcon -> prepare("SELECT nombre,pass,email,usuario_id FROM usuario where email = '$email'");
 
     if ($query -> execute()) { // Si se ejecuta
 
@@ -31,6 +31,7 @@ if (verifyInfo($email,$pass)) {
             $_SESSION["nombre"] = $result["nombre"];
             $_SESSION["pass"] = $result["pass"];
             $_SESSION["email"] = $result["email"];
+            $_SESSION["userID"] = $result["usuario_id"];
             header("LOCATION: ../Cuenta/userProfile.php");
 
         } else {

@@ -113,6 +113,7 @@ $("#nextLavado").click(function() {
                 $("#tituloLavado").html(data.nombre);
                 $("#Precio").html(data.precio + "€");
                 sessionStorage.setItem("lavado",data.lavado_id);
+                $("#lavadoID").val(data.lavado_id);
                 console.log(data); 
             }  
         },
