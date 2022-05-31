@@ -5,7 +5,7 @@ function comenzar(){
     $("#divdesaparecedor").toggle();
     $("#divemergente").toggle();
 
-    $("#Reserv").css({"position":"absolute","height":"79%","left": "-400px"});
+    $("#Reserv").css({"position":"absolute","height":"79%","left": "-600px"});
 
 
 //Desplegable lateral

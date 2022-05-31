@@ -17,7 +17,7 @@ $("#cargarPagos").click(function() {
             console.log(data);
             if (data.error) { // si da error
                 $("#pagos").append(
-                    "<h2>No quedan mas lavados</h2>"
+                    "<h2>No quedan mas pagos</h2>"
                 )
                 funcDisabled = true
             } else {
@@ -28,6 +28,7 @@ $("#cargarPagos").click(function() {
                 $("#pago" + data.pago_id).html(`
                     <h2>Pago verificado</h2>
                     <h3>En: ` + data.nombre + `</h3>
+                    <h4>Fecha: ` + data.fecha + `</h4>
                     <a href = "../Review/reviewForm.php">Subir una reseña</a>
                 `)
             }
