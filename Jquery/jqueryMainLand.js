@@ -93,10 +93,13 @@ $("#masimagenes").click(function(){
         data: {},
         success : function(data){
             console.log(data)
-            $("#divemergente").append(
-                "<img src ='../../Imagenes/lavados/" + data.direccion+"'>"
-            )
+            if (!data.error) {
+                $("#divemergente").append(
+                    "<img src ='../../Imagenes/lavados/" + data.direccion+"'>"
+                )
+            }
         }
+
     })
 });
 

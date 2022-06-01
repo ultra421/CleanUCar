@@ -9,11 +9,11 @@ $("#mainContent > a").click(function(e){
         data: {lavadoID : sessionStorage.getItem("lavado")},
         success : function(data) {
             console.log(data)
-            if (data.result == true) {
-               console.log("aaa");
-               window.location = "../PagosRealizados/VerifyPago.php"
+            if (data.error) {
+                console.log("error en el insert");
             } else {
-                console.log("aaa2");
+                console.log("aaa");
+                window.location = "../PagosRealizados/VerifyPago.php"
             }
         },
         error: function(a,b,c){

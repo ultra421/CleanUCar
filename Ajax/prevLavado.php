@@ -8,7 +8,17 @@ $query = $dbcon -> prepare(
 );
 
 if ($query -> execute()) {
+
     $result = $query -> fetch();
+
+    if (is_bool($result)) {
+        $result["error"] = true;
+    } else {
+        $result["error"] = false;
+    }
+
     $resultJSON = json_encode($result);
+
     echo $resultJSON;
+
 }

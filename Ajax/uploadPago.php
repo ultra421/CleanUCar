@@ -10,11 +10,11 @@ $query = $dbcon -> prepare(
     "INSERT INTO pagos_lavado
     VALUES (null,true,CURDATE(),$userID,$lavadoID)");
 
-if ($query -> execute()) {
-    $result = array("result" => true);
+if (!$query -> execute()) {
+    $result = array("error" => true);
     echo json_encode($result);
 } else {
-    $result = array("result" => false);
+    $result = array("error" => false);
     echo json_encode($result);
 }
 
