@@ -1,6 +1,5 @@
 <?php 
 include "../Plantillas/DBConnect.php";
-//Añadir where
 $lavadoID = intval($_POST["lavado"]);
 $query = $dbcon -> prepare(
     "SELECT nombre,precio,lavado_id 

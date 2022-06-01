@@ -112,13 +112,16 @@ $("#nextLavado").click(function() {
         data: {lavado : sessionStorage.getItem("lavado")},
         success : function(data) {
             // data sera false si no hay mas
-            if (data != false) {
+            if (data.error == false) {
                 $("#tituloLavado").html(data.nombre);
                 $("#Precio").html(data.precio + "€");
                 sessionStorage.setItem("lavado",data.lavado_id);
                 $("#lavadoID").val(data.lavado_id);
+                $("#previoLavado").prop("disabled",false);
                 console.log(data); 
-            }  
+            }  else {
+                $("#nextLavado").prop("disabled",true);
+            }
         },
         error: function(a,b,c) {
             console.log("erorr :((((");
@@ -136,12 +139,15 @@ $("#previoLavado").click(function() {
         data: {lavado : sessionStorage.getItem("lavado")},
         success : function(data) { 
             // data sera false si no hay mas
-            if (data != false) {
+            if (data.error == false) {
                 $("#tituloLavado").html(data.nombre);
                 $("#Precio").html(data.precio + "€");
                 sessionStorage.setItem("lavado",data.lavado_id);
+                $("#nextLavado").prop("disabled",false);
                 console.log(data); 
-            } 
+            } else {
+                $("#previoLavado").prop("disabled",true);
+            }
         },
         error: function(a,b,c) {
             console.log("erorr :((((");

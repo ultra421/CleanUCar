@@ -19,6 +19,7 @@ $("#cargarPagos").click(function() {
                 $("#pagos").append(
                     "<h2>No quedan mas pagos</h2>"
                 )
+                $("#cargarPagos").prop("disabled",true)
                 funcDisabled = true
             } else {
                 lastPagoID = data.pago_id
