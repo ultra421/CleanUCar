@@ -12,7 +12,13 @@ body {
     transition:750ms;
     
 }
+.deskQR{
 
+    margin: 10px;
+    margin-right: 100px;
+    border: 2px;
+    border-color: black;
+}
 
 #mainContent>div>img {
     width: 50%;
@@ -35,8 +41,8 @@ body {
     #mainContent>div {
         border: solid black;
         border-radius: 2px;
-        width: 35%;
-        height: 49%;
+        width: 99%;
+        height: 99%;
         text-align: center;
         margin: 0px;
         padding: 0px;
