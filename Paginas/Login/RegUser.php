@@ -17,7 +17,7 @@ $genero = $_POST["genero"];
 $query = $dbcon -> prepare(
     "SELECT count(email) FROM usuario WHERE email = '$email'"
 );
-if ($query -> execute() && ($pass == $pass2)) {
+if ($query -> execute() && ($pass == $pass2) && strlen($telefono) > 8 && filter_Var($email, FILTER_VALIDATE_EMAIL)) {
 
     $result = $query -> fetch();
     var_dump($result);

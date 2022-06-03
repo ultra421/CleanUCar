@@ -37,6 +37,10 @@ if ($query -> execute()) {
     echo "no query coches :(";
 }
 
+if ($result["vehiculos_id"] == 1112) { // 1112 es el tipo de coches donde no se cumple ningu ncampo (todo false)
+    header("LOCATION: CrearLavado.php");
+}
+
 echo "query de tipo coche </br>";
 var_dump($result);
 $cocheResult = $result["vehiculos_id"];
@@ -55,6 +59,10 @@ if ($query -> execute()) {
     $result = $query -> fetch();
 } else {
     echo "no query tipos ):";
+}
+
+if ($result["tipo_id"] == 129) { // 129 es el lavado donde no se cumple ningun campo (todo false)
+    header("LOCATION: CrearLavado.php");
 }
 
 echo "query de tipo lavado </br>";
@@ -82,7 +90,6 @@ $ubicacion = $_POST["ubicacion"];
 $precio = $_POST["precio"];
 
 //Comprovar que usuario no tenga ya un lavado
-//Implementar ajax para la modificacion de multiples lavados (aun no)
 //Query devuelve false si no hay nada
 
 $query = $dbcon -> prepare(

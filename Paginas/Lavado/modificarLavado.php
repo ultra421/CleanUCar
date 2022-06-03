@@ -12,7 +12,6 @@ $query = $dbcon -> prepare("SELECT * FROM usuario WHERE email = '$email'");
 
 if ($query -> execute()) {
     $result = $query -> fetch();
-    var_dump($result);
 } else {
     header ("LOCATION: userProfile.php");
 }
