@@ -5,7 +5,6 @@ include "../../Plantillas/logRequired.php";
 include "../../Plantillas/DBConnect.php";
 
 $lavado_id = $_POST["lavado_id"];
-var_dump($_POST);
 
 if (!isset($_POST["submit"])) {
     //header ("LOCATION: ../Login/LogPage.php");
@@ -18,9 +17,7 @@ $query = $dbcon -> prepare(
 );
 
 if ($query -> execute()) {
-    var_dump($_POST);
-    var_dump($lavado_id);
-    //header("LOCATION: ../Cuenta/userProfile.php");
+    header("LOCATION: ../Cuenta/userProfile.php");
 }
 
 ?>

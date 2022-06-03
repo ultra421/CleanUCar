@@ -8,8 +8,6 @@ if (!isset($_POST["submit"])) {
     header("Location: ../Cuenta/userProfile.php");
 }
 
-var_dump($_POST);
-
 $coche = isset($_POST["coche"]);
 $moto = isset($_POST["moto"]);
 $furgoneta = isset($_POST["furgoneta"]);
@@ -22,6 +20,9 @@ $ecologico = isset($_POST["ecologico"]);
 $aspirado = isset($_POST["aspirado"]);
 $cera = isset($_POST["cera"]);
 $pulido = isset($_POST["pulido"]);
+
+//Tipos de lavado/vehiculos, hay campos en la base de datos con todas las posibles combinaciones
+//entra las opciones, cada uno con una id unica, esta se enlaza a el lavado en sus propeidades
 
 //Query tipo coche
 
@@ -41,8 +42,6 @@ if ($result["vehiculos_id"] == 1112) { // 1112 es el tipo de coches donde no se 
     header("LOCATION: CrearLavado.php");
 }
 
-echo "query de tipo coche </br>";
-var_dump($result);
 $cocheResult = $result["vehiculos_id"];
 
 //QUery tipo lavado
@@ -65,14 +64,11 @@ if ($result["tipo_id"] == 129) { // 129 es el lavado donde no se cumple ningun c
     header("LOCATION: CrearLavado.php");
 }
 
-echo "query de tipo lavado </br>";
-var_dump($result);
 $lavadoResult = $result["tipo_id"];
 
 // QUery userID
 
 $email = $_SESSION["email"];
-var_dump($email);
 $query = $dbcon -> prepare(
     "SELECT usuario_id from usuario where email = '$email'"
 );
@@ -99,12 +95,10 @@ $query = $dbcon -> prepare(
 if ($query -> execute()) {
     $result = $query -> fetch();
 }
-echo "vardump del query comprovar";
-var_dump($result);
 
 //Si no existe devuelve false sino sera array, solo queremos un lavado por usuario demomento
 if ($result != false) {
-    header("LOCATION: ../Cuenta/errorCreacion.php");
+    header("LOCATION: ../Cuenta/userProfile.php");
 } else {
     
     //Query insert lavado
@@ -117,7 +111,7 @@ if ($result != false) {
     if (!($query -> execute())) {
         $dbcon -> rollback();
         echo "error insert lavado";
-        //header("LOCATION: CrearLavado.php");
+        header("LOCATION: CrearLavado.php");
     }
 
     //Query insertar imagen
@@ -140,7 +134,7 @@ if ($result != false) {
     $result = $query -> fetch();
     $lavado_id = $result["lavado_id"];
     $extension = pathinfo($fileName, PATHINFO_EXTENSION);
-    $hashedName = hash('md5',$fileName.rand(0,99999999));
+    $hashedName = hash('md5',$fileName.rand(0,99999999)); // Evitar nombres repetidos (muchas imagenes se llaman unnamed.jpg por ejemplo)
     $path = $hashedName.".".$extension; // Archivo.extension
 
     $query = $dbcon -> prepare("INSERT INTO imagenes_lavado values (null,'$lavado_id','$path','no desc')");
@@ -151,7 +145,7 @@ if ($result != false) {
 
         if (move_uploaded_file($tempName,$finalRoute)) {
             $dbcon -> commit();
-            //header('location: ../Cuenta/userProfile.php');
+            header('location: ../Cuenta/userProfile.php');
         } else {
             $dbcon -> rollback();
             echo "error";
