@@ -5,6 +5,11 @@ session_start();
 
 $nombre = $_POST["nombre"];
 $pass = $_POST["pass"];
+$pass2 = $_POST["pass2"];
+var_dump($_POST);
+
+//Encryptar contraseña
+$passEncrypt = password_hash($pass , PASSWORD_DEFAULT);
 $email = $_POST["email"];
 $telefono = $_POST["telefono"];
 $genero = $_POST["genero"];
@@ -12,7 +17,7 @@ $genero = $_POST["genero"];
 $query = $dbcon -> prepare(
     "SELECT count(email) FROM usuario WHERE email = '$email'"
 );
-if ($query -> execute()) {
+if ($query -> execute() && ($pass == $pass2)) {
 
     $result = $query -> fetch();
     var_dump($result);
@@ -21,7 +26,7 @@ if ($query -> execute()) {
 
         $query = $dbcon -> prepare(
             //Si auto increment es = NULL entonces se autoincrementa solo?
-            "INSERT INTO usuario values (NULL,'$nombre','$pass','$email',CURDATE(),'$telefono','$genero',0,0,0)"
+            "INSERT INTO usuario values (NULL,'$nombre','$passEncrypt','$email',CURDATE(),'$telefono','$genero',0,0,0)"
         );
 
         if ($query -> execute()) {
@@ -35,6 +40,8 @@ if ($query -> execute()) {
         header("LOCATION: LogPage.php");
 
     }
+} else {
+    header("LOCATION: RegPage.php");
 }
 
 ?>

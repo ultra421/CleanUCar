@@ -31,7 +31,7 @@ include "../../Plantillas/userInfoPrint.php";
     ?>
     <div id = mainContent>
         <form action="RegUser.php" method = "POST">
-            <h2>Login</h2>
+            <h2>Register</h2>
             <div class= "izquierda">
                 <div class= "formInput">
                     <h3>Nombre de usuario</h4> 

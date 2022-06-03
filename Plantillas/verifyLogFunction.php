@@ -16,7 +16,7 @@ function verifyInfo($email,$pass) {
 
         $result = $query -> fetch(PDO::FETCH_ASSOC);
 
-        if ($pass == $result["pass"]) {
+        if (password_verify($pass,$result["pass"])) {
             
             return true;
 

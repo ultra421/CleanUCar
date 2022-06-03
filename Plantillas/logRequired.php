@@ -4,8 +4,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["pass"])) {
 
     if (!verifyInfo($_SESSION["email"],$_SESSION["pass"])) {
 
-        header("Location: ../Login/LogPage.php");
         session_unset();
+        header("Location: ../Login/LogPage.php");
 
     }
 } else {

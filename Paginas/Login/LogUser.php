@@ -6,11 +6,9 @@ include "../../Plantillas/verifyLogFunction.php";
 include "../../Plantillas/DBConnect.php";
 
 if (!isset($_POST["submit"])) {
-    header ("LOCATION: LogPage.php");
+    //header ("LOCATION: LogPage.php");
    
-} /* else if ($_SESSION["email"] !== null && $_SESSION["pass"] !== null ) {
-    header ("LOCATION: LogPage.php");
-} Cambiar esto hacer que funciona */
+}
 
 $email = $_POST["email"];
 $pass = $_POST["pass"];
@@ -24,12 +22,12 @@ if (verifyInfo($email,$pass)) {
 
         $result = $query -> fetch(PDO::FETCH_ASSOC);
 
-        if ($result["pass"] == $pass) {
+        if (password_verify($pass,$result["pass"])) {
 
             $log = 1;
             $_SESSION["log"] = $log;
             $_SESSION["nombre"] = $result["nombre"];
-            $_SESSION["pass"] = $result["pass"];
+            $_SESSION["pass"] = $_POST["pass"];
             $_SESSION["email"] = $result["email"];
             $_SESSION["userID"] = $result["usuario_id"];
             header("LOCATION: ../Cuenta/userProfile.php");

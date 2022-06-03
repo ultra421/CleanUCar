@@ -9,7 +9,6 @@ $query = $dbcon -> prepare("SELECT * FROM usuario WHERE email = '$email'");
 
 if ($query -> execute()) {
     $result = $query -> fetch();
-    var_dump($result);
 } else {
     header ("LOCATION: userProfile.php");
 }
@@ -61,7 +60,7 @@ include "../../Plantillas/topBarMovile.php";
                 </div>
                 <div class= "formInput">
                     <h3>Contraseña</h4>
-                    <input type="password" name="pass" size="40%" placeholder ="******" value = <?php echo $pass ?>>
+                    <input type="password" name="pass" size="40%" placeholder ="******">
 
                 </div>
             </div> 
