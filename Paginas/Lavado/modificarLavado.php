@@ -69,12 +69,6 @@ function passToHtml ($input) {
     }
 }
 
-echo "</br>LAVADO RESULT</br>";
-var_dump($lavadoResult);
-echo "</br>VEHICULO RESULT</br>";
-var_dump($vehiculoResult);
-echo "</br>TIPO RESULT</br>";
-var_dump($tipoResult);
 $nombreLavado = $lavadoResult["nombre"];
 $ubicacion = $lavadoResult["ubicacion"];
 $precio = $lavadoResult["precio"];
@@ -115,6 +109,8 @@ include "../../Plantillas/topBarMovile.php";
         Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes" value = <?php echo $nombreLavado ?>>
         Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion" value = <?php echo $ubicacion ?>>
         Precio<input type = number name = precio value = <?php echo $precio ?>>
+        <hr></hr>
+        
         <h3>Tipos de vehiculos</h3>
         <input type = checkbox name = coche <?php passToHtml($vehiculoResult[1]) ?>>
         <label for = coche>Acepta coches?</label>
@@ -128,6 +124,7 @@ include "../../Plantillas/topBarMovile.php";
         <input type = checkbox name = camion <?php passToHtml($vehiculoResult[4]) ?>>
         <label for = camion>Acepta camiones?</label>
 
+        <hr></hr>
         <h3>Tipo de lavado</h3>
 
         <input type = checkbox name = tunel <?php passToHtml($tipoResult[1]) ?>>
@@ -151,6 +148,7 @@ include "../../Plantillas/topBarMovile.php";
         <input type = checkbox name = pulido <?php passToHtml($tipoResult[7]) ?>>
         <label for = pulido>Pulido</label>
 
+        <hr></hr>
         <br></br>
         <input type = submit name = submit value = "Modificar lavado">
     </form>

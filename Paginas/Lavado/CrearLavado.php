@@ -32,12 +32,14 @@ include "../../Plantillas/topBarMovile.php";
 ?>
 
 <div id = mainContent>
-    <form action = "uploadLavado.php" method = POST enctype="multipart/form-data">
+    <form action = "uploadLavado.php" method = POST enctype="multipart/form-data" id = lavadoForm>
         <h2>Crear Lavado</h2>
         Nombre del lavado:<input type = text name = nombre placeholder = "Lavado los pepes" required>
         Ubicacion del lavado<input type = text name = ubicacion placeholder = "Calle ubicacion" required>
         Precio<input type = number name = precio required>
+        <hr></hr>
         <h3>Tipos de vehiculos</h3>
+        <h6>Vehiculos aceptados por el lavado</h6>
         <input type = checkbox name = coche require>
         <label for = coche>Acepta coches?</label>
 
@@ -50,7 +52,9 @@ include "../../Plantillas/topBarMovile.php";
         <input type = checkbox name = camion>
         <label for = camion>Acepta camiones?</label>
 
+        <hr></hr>
         <h3>Tipo de lavado</h3>
+        <h6>¿Que tipo de lavados proporciona?</h6>
 
         <input type = checkbox name = tunel>
         <label for = tunel>Tunel</label>
@@ -73,10 +77,11 @@ include "../../Plantillas/topBarMovile.php";
         <input type = checkbox name = pulido>
         <label for = pulido>Pulido</label>
 
-        <br></br> <!-- Delet this -->
-        Imagen del lavado<input type = file name = imagen>
+        <hr></hr>
+        <h3>Imagen del lavado<h3>
+        <input type = file name = imagen>
 
-        <br></br> <!-- Delet this -->
+        <hr></hr>
         <input type = submit name = submit value = "Añadir lavado">
 
     </form>
